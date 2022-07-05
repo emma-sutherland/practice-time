@@ -25,9 +25,10 @@ function App() {
 
       {videos.map(video => {
           return (
-            <>
-             <p key={video.id}>{video.title}</p>
-            </>
+            <div key={video.id}>
+             <p>{video.title}</p>
+             <p>{video.video_link}</p>
+            </div>
           )
         })
       }
