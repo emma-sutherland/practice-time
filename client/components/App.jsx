@@ -1,16 +1,43 @@
-import React from 'react'
 
-function App () {
+import React, { useState, useEffect } from 'react'
+// import { once } from 'superagent'
+import { getVideos } from '../apis/videoApi'
+
+
+function App() {
+
+  const [videos, setVideos] = useState([]) 
+
+  // useEffect does once, on load
+
+  useEffect(() => {
+    return getVideos()
+    .then(videos => {
+      setVideos(videos)
+    })
+  }, [])
+  
+
+
   return (
-    <>
-      <header className="header">
-        <h1>My Collection</h1>
-      </header>
-      <section className="main">
-        {/* add your code here */}
-      </section>
-    </>
+    <div>
+      <h1>Practice videos</h1>
+
+      {videos.map(video => {
+          return (
+            <>
+             <p key={video.id}>{video.title}</p>
+            </>
+          )
+        })
+      }
+
+    </div>
   )
 }
 
+      
 export default App
+
+
+
