@@ -1,37 +1,39 @@
-
 import React, { useState, useEffect } from 'react'
-// import { once } from 'superagent'
-import { getVideos } from '../apis/videoApi'
+import { useDispatch, useSelector } from "react-redux";
+
+// import { getVideos } from '../apis/videoApi'
+import { fetchVideos } from '../actions';
 
 
 function App() {
+  const videos = useSelector((state) => state.videos)
+  console.log(videos)
 
-  const [videos, setVideos] = useState([]) 
+  const dispatch = useDispatch()
 
-  // useEffect does once, on load
+  // useEffect(() => {
+  //   reRender()
+  // }, [])
 
-  useEffect(() => {
-    return getVideos()
-    .then(videos => {
-      setVideos(videos)
-    })
-  }, [])
+  const reRender = (e) => {
+    e.preventDefault()
+    dispatch(fetchVideos(videos))
+  }
   
-
-
   return (
+
     <div>
       <h1>Practice videos</h1>
+      <button onClick={reRender}>
+      Create programme
+      </button>
 
-      {videos.map(video => {
-          return (
+      {videos?.map(video => (
             <div key={video.id}>
              <p>{video.title}</p>
-             <p>{video.video_link}</p>
+             {/* <a href="link">{video.video_link}</a> */}
             </div>
-          )
-        })
-      }
+        ))}
 
     </div>
   )
@@ -41,4 +43,4 @@ function App() {
 export default App
 
 
-
+  // const [videos, setVideos] = useState([]) 

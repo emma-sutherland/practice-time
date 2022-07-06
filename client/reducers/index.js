@@ -2,6 +2,17 @@ import { combineReducers } from 'redux'
 
 // import stuff from './stuff'
 
-export default combineReducers({
-  // stuff
+import videoReducer from './videoReducer'
+import waiting from './waiting'
+import errorMessage from './errorMessage'
+
+const reducer = combineReducers({
+  videos: videoReducer,
+  error: errorMessage,
+  waiting: waiting
 })
+
+export default reducer
+
+
+

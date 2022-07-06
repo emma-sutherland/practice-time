@@ -9,10 +9,9 @@ exports.seed = async function(knex) {
     {id: 1, name: 'Warmup'},
     {id: 2, name: 'Barre'},
     {id: 3, name: 'Centre'},
-    {id: 4, name: 'Allegro'},
-    {id: 5, name: 'Combinations'},
-    {id: 6, name: 'Class Dances'},
-    {id: 7, name: 'Competition Dances'},
+    {id: 4, name: 'Allegro or Combinations'},
+    {id: 5, name: 'Class Dances'},
+    {id: 6, name: 'Competition Dances'},
   ]);
 };
 
