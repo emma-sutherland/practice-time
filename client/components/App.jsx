@@ -25,7 +25,7 @@ function App() {
     <div>
       <h1>Practice videos</h1>
       <button onClick={reRender}>
-      Create programme
+      Create practice programme
       </button>
 
       {videos?.map(video => (
